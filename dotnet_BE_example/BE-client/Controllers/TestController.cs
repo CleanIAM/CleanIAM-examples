@@ -5,7 +5,7 @@ namespace BE_client.Controllers;
 
 public class TestController : Controller
 {
-    [Authorize]
+    [Authorize(Roles = "User,Admin,MasterAdmin")]
     [HttpGet("/test")]
     public OkObjectResult Test()
     {
