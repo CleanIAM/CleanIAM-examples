@@ -6,7 +6,7 @@ namespace BE_client;
 public static class DependecyInjection
 {
     /// <summary>
-    ///     Configure application authentication using introspection
+    /// Configure application authentication using introspection
     /// </summary>
     /// <remarks>
     /// </remarks>
@@ -24,6 +24,8 @@ public static class DependecyInjection
         Guard.IsNotNullOrEmpty(clientId, "Client id not found in app settings");
         Guard.IsNotNullOrEmpty(clientSecret, "Client secret not found in app settings");
 
+        // User special authentication scheme from `Microsoft.Extensions.DependencyInjection.OAuth2IntrospectionExtensions`
+        // nuget package to allow introspection of access tokens
         services.AddAuthentication(OAuth2IntrospectionDefaults.AuthenticationScheme)
             .AddOAuth2Introspection(options =>
             {
@@ -39,7 +41,7 @@ public static class DependecyInjection
 
 
     /// <summary>
-    ///     Configure app auth
+    /// Configure app auth
     /// </summary>
     /// <param name="app"></param>
     /// <returns></returns>

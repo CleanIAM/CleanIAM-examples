@@ -15,6 +15,7 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// Custom function to demonstrate how to add authentication using introspection
 builder.Services.AddAuth(builder.Configuration);
 
 var app = builder.Build();
