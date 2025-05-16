@@ -1,38 +1,55 @@
-# sv
+# CleanIAM Svelte Frontend Example
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A simple Svelte application demonstrating how to integrate with CleanIAM OpenID Connect server.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Complete OIDC Integration**: Full OpenID Connect authentication flow
+- **API Authorization**: Using access tokens to authorize API requests
+- **User Profile**: Display user information from ID tokens
+- **Token Management**: Automatic token refresh and secure storage
+- **Logout Flow**: Complete OIDC logout implementation
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ or Bun runtime
+- CleanIAM server running locally or accessible URL
+
+### Installation
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+# Install dependencies
+npm install
+# Or if using Bun
+bun install
 ```
 
-## Developing
+### Configuration
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The base configuration is set to the values seeded in the CleanIAM server for demo apps.
+
+To edit the oidc configuration, go to the `src/lib/stores/auth.svelte.ts` file and set the configuration values.
+
+### Development
 
 ```bash
+# Start development server
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Or if using Bun
+bun run dev
 ```
 
-## Building
+## Project Structure
 
-To create a production version of your app:
+- `src/lib/stores/auth.svelte.ts` - OIDC client configuration and auth utilities
+- `src/routes` - SvelteKit routes including login, callback, and protected pages
 
-```bash
-npm run build
-```
+## Learn More
 
-You can preview the production build with `npm run preview`.
+For a complete understanding of integrating with CleanIAM, check the [official documentation](https://github.com/CleanIAM/CleanIAM).
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## License
+
+MIT
